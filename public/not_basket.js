@@ -33,7 +33,6 @@ function gorevSilTamamlaDuzenle(e) {
             }, { once: true });
         }
     }
-
     if (tiklanilanEleman.classList.contains('gorev-btn-duzenle')) {
         const gorevItem = tiklanilanEleman.parentElement;
         const gorevTanim = gorevItem.children[0];
@@ -111,10 +110,10 @@ function localStorageTamamlaGeriAl(gorev) {
 
 function localStorageOku() {
     const gorevler = localStorageGetGorevler();
-    gorevler.forEach(gorevItemOlustur);
+    gorevler.forEach(gorev => gorevItemOlustur(gorev, false));
 
     const tamamlananGorevler = localStorageGetTamamlananGorevler();
-    tamamlananGorevler.forEach(gorevItemOlustur);
+    tamamlananGorevler.forEach(gorev => gorevItemOlustur(gorev, true));
 }
 
 function localStorageSil(gorev) {
@@ -133,7 +132,7 @@ function localStorageSil(gorev) {
     }
 }
 
-function gorevItemOlustur(gorev) {
+function gorevItemOlustur(gorev, tamamlandi = false) {
     const gorevDiv = document.createElement('div');
     gorevDiv.classList.add('gorev-item');
 
@@ -160,9 +159,10 @@ function gorevItemOlustur(gorev) {
     gorevSilBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
     gorevDiv.appendChild(gorevSilBtn);
 
-    if (gorevListesi.contains(gorevDiv)) {
-        gorevListesi.appendChild(gorevDiv);
-    } else {
+    if (tamamlandi) {
+        gorevDiv.classList.add("gorev-tamamlandi");
         tamamlananGorevListesi.appendChild(gorevDiv);
+    } else {
+        gorevListesi.appendChild(gorevDiv);
     }
 }
