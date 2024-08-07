@@ -1,0 +1,158 @@
+:root {
+    --main-color: rgba(41, 128, 185, 1.0);
+    --main-color-light: rgba(41, 128, 185, 0.2);
+    --accent-color: rgba(243, 156, 18, 1.0);
+    --accent-color-light: rgba(243, 156, 18, 0.5);
+    --background-gradient: linear-gradient(to bottom right, var(--main-color), var(--main-color-light));
+    --button-hover-color: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    font-family: "Edu AU VIC WA NT Hand", sans-serif;
+    background-image: var(--background-gradient);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header, .gorev-form {
+    width: 80%;
+    max-width: 600px;
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gorev-form {
+    flex-direction: row;
+}
+
+.form-item {
+    padding: 0.5rem;
+    font-size: 1.5rem; 
+    border: none;
+    border-radius: 5px;
+    margin: 0.5rem;
+    background-color: white;
+    outline: none;
+}
+
+.form-item.input-gorev {
+    flex: 1;
+}
+
+.btn-gorev-ekle {
+    color: var(--accent-color);
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-gorev-ekle:hover {
+    background-color: var(--button-hover-color);
+}
+
+.gorev-container {
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gorev-listesi {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.gorev-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    background-color: white;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out, background-color 0.3s ease;
+}
+
+.gorev-item:hover {
+    background-color: var(--main-color-light);
+}
+
+.gorev-tanim {
+    flex: 1;
+    padding: 0.1rem;
+}
+
+.gorev-btn {
+    background-color: var(--accent-color);
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gorev-btn:hover {
+    background-color: var(--accent-color-light);
+}
+
+.gorev-btn-sil {
+    background-color: red;
+}
+
+.gorev-btn-sil:hover {
+    background-color: darkred;
+}
+
+.gorev-tamamlandi {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fa {
+    pointer-events: auto; 
+}
+
+.kaybol {
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+}
