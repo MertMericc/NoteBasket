@@ -29,5 +29,30 @@
     </div>
 
     <script src="not_basket.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDIdP4ya93KZ3o_dSk8qnhPib7rboDLPI8",
+          authDomain: "note-basket-8f138.firebaseapp.com",
+          projectId: "note-basket-8f138",
+          storageBucket: "note-basket-8f138.appspot.com",
+          messagingSenderId: "621420390418",
+          appId: "1:621420390418:web:a7c5a847855ea586ded0cb",
+          measurementId: "G-C4JCCTQCVV"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+      
 </body>
 </html>
