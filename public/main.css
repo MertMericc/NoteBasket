@@ -21,11 +21,33 @@ body {
     text-align: center;
 }
 
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
 .main-title {
     font-size: 2.5rem;
     color: white;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden; 
+}
+
+.main-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine 2s infinite;
 }
 
 .header, .gorev-form, .gorev-container {
@@ -75,11 +97,11 @@ body {
 }
 
 .btn-gorev-ekle i, .gorev-btn i {
-    pointer-events: none; /* İkonun tıklanabilirliğini devre dışı bırak */
+    pointer-events: none; 
 }
 
 .btn-gorev-ekle * {
-    pointer-events: none; /* Button içeriğindeki diğer tüm elemanların tıklanabilirliğini devre dışı bırak */
+    pointer-events: none; 
 }
 
 .btn-gorev-ekle:hover {
@@ -96,7 +118,7 @@ body {
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem; /* Görev listeleri arasında boşluk */
+    margin-bottom: 1rem; 
 }
 
 .gorev-listesi, .tamamlanan-gorev-listesi {
