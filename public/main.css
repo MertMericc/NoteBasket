@@ -19,6 +19,7 @@ body {
     justify-content: center;
     color: white;
     text-align: center;
+    padding: 0 2rem; 
 }
 
 @keyframes shine {
@@ -36,7 +37,10 @@ body {
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .main-title::before {
@@ -50,8 +54,12 @@ body {
     animation: shine 2s infinite;
 }
 
+.main-title i {
+    font-size: 1.5em;
+}
+
 .header, .gorev-form, .gorev-container {
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     margin: 0.5rem;
     display: flex;
@@ -66,6 +74,7 @@ body {
 
 .gorev-form {
     flex-direction: row;
+    width: 100%; 
 }
 
 .form-item {
@@ -80,6 +89,7 @@ body {
 
 .form-item.input-gorev {
     flex: 1;
+    min-width: 0;
 }
 
 .btn-gorev-ekle {
@@ -97,11 +107,11 @@ body {
 }
 
 .btn-gorev-ekle i, .gorev-btn i {
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .btn-gorev-ekle * {
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .btn-gorev-ekle:hover {
@@ -109,7 +119,7 @@ body {
 }
 
 .gorev-container {
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     display: flex;
     justify-content: center;
@@ -118,7 +128,7 @@ body {
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
 }
 
 .gorev-listesi, .tamamlanan-gorev-listesi {
@@ -188,4 +198,15 @@ body {
 .kaybol {
     transform: scale(0);
     transition: transform 0.5s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .gorev-form {
+        flex-direction: column;
+    }
+
+    .form-item, .btn-gorev-ekle {
+        width: calc(100% - 1rem); 
+        margin: 0.5rem auto; 
+    }
 }
