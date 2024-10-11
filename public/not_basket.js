@@ -9,33 +9,39 @@ tamamlananGorevListesi.addEventListener('click', gorevSilTamamlaDuzenle);
 document.addEventListener('DOMContentLoaded', localStorageOku);
 
 function gorevSilTamamlaDuzenle(e) {
-    const tiklanilanEleman = e.target;
+    const tiklanilanEleman = e.target.closest('.gorev-item'); // En yakın gorev-item'ı bul
 
-    if (tiklanilanEleman.classList.contains('gorev-btn-tamamlandi')) {
-        const gorevItem = tiklanilanEleman.parentElement;
-        gorevItem.classList.toggle("gorev-tamamlandi");
-        if (gorevItem.classList.contains("gorev-tamamlandi")) {
-            tamamlananGorevListesi.appendChild(gorevItem);
-            localStorageTamamla(gorevItem.children[0].innerText);
+    if (!tiklanilanEleman) return; // Eğer tıklanan eleman gorev-item değilse çık
+
+    const btnTamamla = e.target.closest('.gorev-btn-tamamlandi');
+    const btnSil = e.target.closest('.gorev-btn-sil');
+    const btnDuzenle = e.target.closest('.gorev-btn-duzenle');
+
+    if (btnTamamla) {
+        // Tamamla işlemleri
+        tiklanilanEleman.classList.toggle("gorev-tamamlandi");
+        if (tiklanilanEleman.classList.contains("gorev-tamamlandi")) {
+            tamamlananGorevListesi.appendChild(tiklanilanEleman);
+            localStorageTamamla(tiklanilanEleman.children[0].innerText);
         } else {
-            gorevListesi.appendChild(gorevItem);
-            localStorageTamamlaGeriAl(gorevItem.children[0].innerText);
+            gorevListesi.appendChild(tiklanilanEleman);
+            localStorageTamamlaGeriAl(tiklanilanEleman.children[0].innerText);
         }
     }
-    if (tiklanilanEleman.classList.contains('gorev-btn-sil')) {
-        if (confirm('Emin misiniz')) {
-            const gorevItem = tiklanilanEleman.parentElement;
-            gorevItem.classList.add('kaybol');
-            const silinecekGorev = gorevItem.children[0].innerText;
+    if (btnSil) {
+        // Silme işlemleri
+        if (confirm('Emin misiniz?')) {
+            tiklanilanEleman.classList.add('kaybol');
+            const silinecekGorev = tiklanilanEleman.children[0].innerText;
             localStorageSil(silinecekGorev);
-            gorevItem.addEventListener('transitionend', function() {
-                gorevItem.remove();
+            tiklanilanEleman.addEventListener('transitionend', function() {
+                tiklanilanEleman.remove();
             }, { once: true });
         }
     }
-    if (tiklanilanEleman.classList.contains('gorev-btn-duzenle')) {
-        const gorevItem = tiklanilanEleman.parentElement;
-        const gorevTanim = gorevItem.children[0];
+    if (btnDuzenle) {
+        // Düzenleme işlemleri
+        const gorevTanim = tiklanilanEleman.children[0];
         const yeniGorev = prompt('Görevi güncelle:', gorevTanim.innerText);
         if (yeniGorev) {
             const eskiGorev = gorevTanim.innerText;
