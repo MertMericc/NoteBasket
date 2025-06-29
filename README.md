@@ -16,3 +16,5 @@ Bu proje, aşağıdaki teknolojiler kullanılarak geliştirilmiştir:
 - **HTML**
 - **CSS**
 - **JavaScript**
+
+- note-basket-8f138.web.app/
